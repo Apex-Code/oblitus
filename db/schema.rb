@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526044952) do
+ActiveRecord::Schema.define(version: 20170528044217) do
 
   create_table "items", force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 80
   end
 
   create_table "list_items", force: :cascade do |t|
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170526044952) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
-    t.integer "type"
+    t.string "type", limit: 80
   end
 
   create_table "users", force: :cascade do |t|
