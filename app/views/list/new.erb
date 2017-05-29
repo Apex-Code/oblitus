@@ -1,14 +1,6 @@
 <h2>Add a List</h2>
 <form action="/lists" method="POST">
-  <p>List Name<input type="text" name="name"></p>
-<div class="row">
-  <div class="col-lg-6">
-    <div class="input-group">
-      <span class="input-group-addon">
-        <input type="checkbox" aria-label="Checkbox for following text input">
-      </span>
-      <input type="text" class="form-control" aria-label="Text input with checkbox">
-    </div>
-    <input class="btn btn-primary" type="submit" value="submit">
-  </div>
+  <p>List Name<input type="text" name="name" placeholder="Make it epic"></p>
+  <p>List Type<input type="text" name="list_type" placeholder="What kind of stuff are we doing?"></p>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">submit</button>
 </form>

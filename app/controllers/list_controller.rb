@@ -18,12 +18,12 @@ class ListController < ApplicationController
   end
 
   post '/lists' do
-    if params[:item] == ""
+    if params[:item] == "" || params[:type] == ""
       redirect to "/list/new"
     else
-    @list = List.new(item: params[:item], type: params[:type])
+    @list = List.new(name: params[:name], list_type: params[:list_type])
     @list.save
-      redirect to "/list/#{@list.id}/add_items"
+      redirect to "/lists/#{@list.id}/add_items"
     end
   end
 
