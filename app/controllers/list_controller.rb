@@ -18,7 +18,7 @@ class ListController < ApplicationController
   end
 
   post '/lists' do
-    if params[:item] == "" || params[:type] == ""
+    if params[:name] == "" || params[:list_type] == ""
       redirect to "/list/new"
     else
     @list = List.create(name: params[:name], list_type: params[:list_type], user_id: params[current_user])
@@ -66,7 +66,7 @@ class ListController < ApplicationController
       @list = List.find_by_id(params[:id])
       @list.content = params[:content]
       @list.save
-      redirect to "/tweets/#{@tweet.id}"
+      redirect to "/lists/#{@list.id}"
     end
   end
 
@@ -80,6 +80,19 @@ class ListController < ApplicationController
         redirect to '/lists'
       end
     else
+      redirect to '/login'
+    end
+  end
+
+  post '/lists/:id/add_items' do
+    if logged_in?
+
+      @list = List.find_by_id(params[:id])
+      @item = Item.create(content: params[:content], list_id: params[@list])
+      @item.save
+
+      erb :'/list/show'
+       else
       redirect to '/login'
     end
   end
