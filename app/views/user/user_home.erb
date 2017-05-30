@@ -1,46 +1,6 @@
 
-<link rel="stylesheet" href="/css/cover.css">
-<body>
-
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-
-            </div>
-          </div>
-
-          <div class="inner cover">
-
-            <ul class="col-md-auto">
-              <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
-            </ul>
 
 
-
-                        <input type="checkbox" name="packersOff" value="1"/>
-
-
-                    </div>
-
-
-
-            </p>
-          </div>
-
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
+            <% current_user.lists.each do |list|%>
+            <h1><%=list.name%></h1>
+<% end %>

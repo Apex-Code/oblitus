@@ -21,8 +21,9 @@ class ListController < ApplicationController
     if params[:item] == "" || params[:type] == ""
       redirect to "/list/new"
     else
-    @list = List.new(name: params[:name], list_type: params[:list_type])
+    @list = List.create(name: params[:name], list_type: params[:list_type], user_id: params[current_user])
     @list.save
+    current_user.lists << @list
       redirect to "/lists/#{@list.id}/add_items"
     end
   end
