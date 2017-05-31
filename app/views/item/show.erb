@@ -2,7 +2,7 @@
 <a href="/lists/new"><button type="button" class="btn btn-default">Create A New List</button></a>
 
 <div class="col-6">
-<% current_user.lists.each do |list|%>
+<% @lists.each do |list|%>
 
 <h2><%= list.name %></h2>
 <a href="/lists/<%=list.id%>/edit"><i class="fa fa-pencil"></i> Edit List</a>
