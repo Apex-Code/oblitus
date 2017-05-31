@@ -1,3 +1,10 @@
+
+<% @list.items.each do |item| %>
+<% if item.content != "" %>
+
+
 <ul>
-<%=@list.name%>  
+<li><%=item.content%></li>
 </ul>
+<% end %>
+<% end %>

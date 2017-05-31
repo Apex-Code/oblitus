@@ -23,7 +23,19 @@ class ListController < ApplicationController
     else
     @list = List.create(name: params[:name], list_type: params[:list_type], user_id: params[current_user])
     current_user.lists << @list
-    @list.save
+
+    @list.items << Item.create(content: params[:item_1])
+    @list.items << Item.create(content: params[:item_2])
+    @list.items << Item.create(content: params[:item_3])
+    @list.items << Item.create(content: params[:item_4])
+    @list.items << Item.create(content: params[:item_5])
+    @list.items << Item.create(content: params[:item_6])
+    @list.items << Item.create(content: params[:item_7])
+    @list.items << Item.create(content: params[:item_8])
+    @list.items << Item.create(content: params[:item_9])
+    @list.items << Item.create(content: params[:item_10])
+
+  @list.save
       redirect to "/lists/#{@list.id}"
     end
   end
@@ -68,10 +80,5 @@ class ListController < ApplicationController
   end
 
 
-      erb :'/list/show'
-       else
-      redirect to '/login'
-    end
-  end
 
 end
