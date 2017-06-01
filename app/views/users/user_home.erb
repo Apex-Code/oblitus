@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/cover.css">
+
+<body>
+
+    <div class="site-wrapper">
+      <div class="jumbotron-fluid">
+        <h1>Welcome, <%=current_user.username%>, Ready to get it?</h1>
+      </div>
+
+        <%current_user.lists.each do |list|%>
+
+
+<a href="/lists/<%=list.id%>/show">
+            <h1><%=list.name%></h1>
+            <%list.items.each do |item|%>
+            <small ><%=item.content%></small><br>
+
+        </a>
+
+        <% end %>
+<% end %>
+
+  </div>
+
+</div>
+    <a href="/lists/new"> <button type="button" class="btn btn-primary btn-lg pull-right">Create Another List</button></a>
+      </div>
+
+</body>

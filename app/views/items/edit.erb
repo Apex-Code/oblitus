@@ -1,7 +1,7 @@
 <h1>Task Edit</h1>
 <form method="post" action="/items/<%= @item.id %>">
 <input id="hidden" type="hidden" name="_method" value="patch">
-<input type="text" name="name" value="<%= @item.name %>" placeholder="<%= @item.name %>">
+<input type="text" name="name" value="<%= @item.content %>" placeholder="<%= @item.content %>">
 
 <input class="btn btn-primary" type="submit" name="edit" value="Edit">
 </form>

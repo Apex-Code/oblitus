@@ -1,6 +1,8 @@
+<link rel="stylesheet" href="/css/cover.css">
+
 <p>Are you sure you want to delete <%= @item.content %>?</p>
 
 <form method="post" action="/items/<%=@item.id%>">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="delete">
-<form>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">delete</button>
+</form>

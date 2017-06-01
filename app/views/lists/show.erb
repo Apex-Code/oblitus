@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/cover.css">
+<div class="site-wrapper">
+
+<h1><a href="/lists/<%=@list.id%>/edit"><button class="btn btn-primary btn-sm">FIX IT</button></a><%=@list.name %><a href="/lists/<%=@list.id%>/delete"><button class="btn btn-primary btn-sm">KILL IT</button></a></h1>
+
+<div class="col-6">
+<% @list.items.each do |item|%>
+
+<h5><a href="/items/<%=item.id%>/edit"><button class="btn btn-primary btn-sm">FIX IT</button></a><%= item.content %><a href="/items/<%=item.id%>/delete"><button class="btn btn-primary btn-sm">KILL IT</button></a></h5>
+
+
+<% end %>
+
+
+</div>
+<a href="/items/new"><button type="button" class="btn btn-default">Feed this list?</button></a>
+
+</div>

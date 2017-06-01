@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/cover.css">
+<div class="wrapper">
+  <div class="col-lg-4 col-lg-offset-4">
+
+
+  <h1>New Task</h1>
+
+  <form method="post" action="/items/new">
+
+  <input type="text" class="form-control" name="content" placeholder="What are we doing?">
+  <br>
+  <label>PICK ONE</label><br>
+  <% @lists.each do |list| %>
+  <input type="radio" name="list_id" value="<%=list.id%>"><%=list.name%><br>
+  <% end %>
+  <br>
+  <input class="btn btn-primary" type="submit" name="create" value="Create">
+</div>
+
+  </form>
+</div>

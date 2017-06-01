@@ -3,21 +3,27 @@ class ItemController < ApplicationController
   get '/items' do
       redirect_if
       @lists = current_user.lists
-      erb :'/item/show'
+      redirect to '/home'
     end
+
 
     get '/items/new' do
       redirect_if
-      @user = current_user
+
       @lists = List.all
-      erb :'/item/new'
+      erb :'/items/new'
     end
 
+
     post '/items/new' do
-      item.create(content: params[:content], list_id: params[:list_id])
+      if params[:list_id].nil? || params[:content].nil?
+        redirect to '/items/new'
+      else
+      @list = List.find_by_id(params[:id])
+    Item.create(content: params[:content], list_id: params[:list_id])
       redirect '/items'
       end
-
+end
     get '/items/new/:id' do
       redirect_if
       @list = List.find_by_id(params[:id])
@@ -26,26 +32,26 @@ class ItemController < ApplicationController
 
     post '/items/new/:id' do
       @list = List.find_by_id(params[:id])
-      item.create(content: params[:name], list_id: params[@list.id])
+      Item.create(content: params[:content], list_id: params[@list.id])
       redirect '/items'
     end
 
     get '/items/:id/edit' do
       @item = Item.find_by_id(params[:id])
-      erb :'/item/edit'
+      erb :'/items/edit'
     end
 
     patch '/items/:id' do
       @item = Item.find_by_id(params[:id])
-      @item.name = params[:name]
+      @item.content = params[:content]
       @item.save
       redirect '/items'
     end
 
 
-    get '/item/:id/delete' do
+    get '/items/:id/delete' do
       @item = Item.find_by_id(params[:id])
-      erb :'/item/delete'
+      erb :'/items/delete'
     end
 
     delete '/items/:id' do

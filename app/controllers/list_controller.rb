@@ -1,8 +1,13 @@
 class ListController < ApplicationController
 
+  get '/lists/:id/show' do
+  @list = List.find_by_id(params[:id])
+  erb :'/lists/show'
+end
+
   get '/lists/new' do
     redirect_if
-    erb :'/list/new'
+    erb :'/lists/new'
   end
 
   post '/lists/new' do
@@ -14,7 +19,7 @@ class ListController < ApplicationController
   get '/lists/:id/edit' do
     redirect_if
     @list = List.find_by_id(params[:id])
-    erb :'/list/edit'
+    erb :'/lists/edit'
   end
 
   patch '/lists/:id' do
@@ -26,7 +31,7 @@ class ListController < ApplicationController
 
   get '/lists/:id/delete' do
     @list = List.find_by_id(params[:id])
-    erb :'/list/delete'
+    erb :'/lists/delete'
   end
 
   delete '/lists/:id' do

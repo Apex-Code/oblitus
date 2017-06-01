@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/css/cover.css">
+
+<h1>Change List Name</h1>
+<div class="col-lg-4 col-lg-offset-4">
+
+<form method="post" action="/lists/<%=@list.id%>">
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+<input type="text" class="form-control" name="name" value="<%=@list.name%>"><br><br>
+
+
+<% @list.items.each do |item| %>
+<h1><%= item.content %></h1>
+<% end %>
+
+<br>
+<input class="btn btn-primary" type="submit" name="update" value="Update">
+</div>
+</form>

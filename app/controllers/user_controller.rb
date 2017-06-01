@@ -1,9 +1,5 @@
 class UserController < ApplicationController
 
-  get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
-    erb :'users/show'
-  end
 
   get '/signup' do
     if !logged_in?
@@ -26,9 +22,9 @@ class UserController < ApplicationController
 
   get '/login' do
     if !logged_in?
-      erb :'user/signin'
+      erb :'users/signin'
     else
-      erb :'/user/user_home'
+      erb :'/users/user_home'
     end
   end
 
@@ -36,7 +32,7 @@ class UserController < ApplicationController
     user = User.find_by(:username => params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      erb :'user/user_home'
+      erb :'users/user_home'
     else
       redirect to '/signup'
     end
@@ -53,7 +49,7 @@ class UserController < ApplicationController
 
   get '/home' do
     if logged_in?
-    erb :'user/user_home'
+    erb :'users/user_home'
   else
     erb :'/login'
       end

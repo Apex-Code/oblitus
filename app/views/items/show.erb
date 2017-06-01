@@ -1,18 +1,21 @@
+<link rel="stylesheet" href="/css/cover.css">
+<div class="wrapper">
 <h1>Hello <%=current_user.username %>!</h1>
 <a href="/lists/new"><button type="button" class="btn btn-default">Create A New List</button></a>
 
 <div class="col-6">
-<% current_user.lists.each do |list|%>
+<% @lists.each do |list|%>
 
 <h2><%= list.name %></h2>
 <a href="/lists/<%=list.id%>/edit"><i class="fa fa-pencil"></i> Edit List</a>
 <a href="/lists/<%=list.id%>/delete"><i class="fa fa-times"></i> Delete List</a>
-<h4><a href="item/new/<%=list.id%>"><i class="fa fa-plus"></i> New Item</a></h4>
+<h4><a href="/items/new/<%=list.id%>"><i class="fa fa-plus"></i> New Item</a></h4>
 
 <% list.items.each do |item| %>
 <h4></i> <%= item.content %>
-<a href="/item/<%= item.id %>/edit"><i class="fa fa-pencil"></i>Edit</a>
-<a href="/item/<%= item.id %>/delete"><i class="fa fa-times"></i>Delete</a>
+<a href="/items/<%= item.id %>/edit"><i class="fa fa-pencil"></i>Edit</a>
+<a href="/items/<%= item.id %>/delete"><i class="fa fa-times"></i>Delete</a>
 </h4>
 <% end %>
 <% end %>
+</div>
