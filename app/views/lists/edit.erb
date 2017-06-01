@@ -5,7 +5,7 @@
 
 <form method="post" action="/lists/<%=@list.id%>">
 <input id="hidden" type="hidden" name="_method" value="PATCH">
-<input type="text" class="form-control" name="name" value="<%=@list.name%>"><br><br>
+<input type="text" class="form-control" name="name" value="<%=@list.name%>" required="You have to"><br><br>
 
 
 <% @list.items.each do |item| %>

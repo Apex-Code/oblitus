@@ -3,7 +3,7 @@ class UserController < ApplicationController
 
   get '/signup' do
     if !logged_in?
-      erb :'user/new'
+      erb :'users/new'
     else
       redirect to '/home'
     end

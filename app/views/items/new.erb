@@ -7,11 +7,13 @@
 
   <form method="post" action="/items/new">
 
-  <input type="text" class="form-control" name="content" placeholder="What are we doing?">
+  <input type="text" class="form-control" name="content" placeholder="What are we doing?" required>
   <br>
-  <label>PICK ONE</label><br>
+  <label>Select the list you want to feed!</label><br>
   <% @lists.each do |list| %>
+  <%if list.user_id == current_user.id%>
   <input type="radio" name="list_id" value="<%=list.id%>"><%=list.name%><br>
+  <% end %>
   <% end %>
   <br>
   <input class="btn btn-primary" type="submit" name="create" value="Create">
