@@ -2,14 +2,17 @@
 
 <div class="col-lg-6 col-lg-offset-3">
 
-<h1>Deleting <%= @list.name %></h1>
+<h1>Are you really done with <%= @list.name %></h1>
 
 <p>Kill this list??</p>
 <form method="post" action="/lists/<%=@list.id%>">
   <input id="hidden" type="hidden" name="_method" value="delete">
-<button class="btn btn-lg pull-right" type="submit">It's dead to me!</button>
+<button class="btn btn-lg" type="submit">It's dead to me!</button>
 </div>
 </form>
 <div class="col-lg-6 col-lg-offset-3">
-  <a href="/home"><button class="btn btn-lg pull-left">LET IT LIVE!</button></a>
+<small>(Or you can always change your mind)</small>
+</div>
+<div class="col-lg-6 col-lg-offset-3">
+  <a href="/home"><button class="btn btn-lg">LET IT LIVE!</button></a>
 </div>
