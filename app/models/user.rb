@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_many :lists
-has_many :items, through: :list_items
-has_secure_password
+  has_secure_password
 
   def slug
     username.downcase.gsub(" ","-")

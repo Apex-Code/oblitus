@@ -19,21 +19,12 @@ ActiveRecord::Schema.define(version: 20170530061641) do
     t.integer "list_id"
   end
 
-  create_table "list_items", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "list_id"
-    t.integer "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "lists", force: :cascade do |t|
     t.string "name"
     t.string "list_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "item_id"
   end
 
   create_table "users", force: :cascade do |t|
