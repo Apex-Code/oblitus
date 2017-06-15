@@ -13,19 +13,20 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-get '/about' do
-  erb :about
-end
+  get '/about' do
+   erb :about
+  end
 
-get '/contact' do
+ get '/contact' do
   erb :contact
-end
- helpers do
+ end
+
+  helpers do
     def logged_in?
       !!session[:user_id]
     end
 
-    def redirect_if
+    def authenticate_user
     if !logged_in?
       redirect to '/login'
     end
