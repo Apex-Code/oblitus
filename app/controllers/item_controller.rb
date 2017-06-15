@@ -53,8 +53,6 @@ class ItemController < ApplicationController
     get '/items/:id/edit' do
       @item = Item.find_by_id(params[:id])
       erb :'/items/edit'
-    else
-      redirect_to '/items'
      end
 
     patch '/items/:id' do

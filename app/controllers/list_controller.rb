@@ -1,14 +1,19 @@
 class ListController < ApplicationController
 
+  before do
+    authenticate_user
+  end
+
   get '/lists/:id/show' do
   @list = List.find_by_id(params[:id])
   erb :'/lists/show'
 end
 
   get '/lists/new' do
-    redirect_if
+
     erb :'/lists/new'
   end
+
 
   post '/lists/new' do
     list = current_user.lists.create(name: params[:name])
@@ -17,7 +22,7 @@ end
   end
 
   get '/lists/:id/edit' do
-    redirect_if
+
     @list = List.find_by_id(params[:id])
     erb :'/lists/edit'
   end
